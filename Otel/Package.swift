@@ -15,7 +15,9 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "Otel",
-            targets: ["Otel"]),
+            type: .dynamic,
+            targets: ["Otel"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/open-telemetry/opentelemetry-swift", .upToNextMajor(from: "1.14.0"))
