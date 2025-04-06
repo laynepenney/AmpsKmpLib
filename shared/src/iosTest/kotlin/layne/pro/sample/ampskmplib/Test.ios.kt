@@ -7,6 +7,8 @@ class IosGreetingTest {
 
     @Test
     fun testExample() {
-        assertTrue(Greeting().greet().contains("iOS"), "Check iOS is mentioned")
+        val greeting = Greeting().greet()
+        println("greeting = $greeting")
+        assertTrue(greeting.contains("iOS"), "Check iOS is mentioned")
     }
 }

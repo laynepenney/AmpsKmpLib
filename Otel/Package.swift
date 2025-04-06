@@ -7,7 +7,7 @@ let package = Package(
     name: "Otel",
     platforms: [
         .macOS(.v12),
-        .iOS(.v13),
+        .iOS(.v14),
         .tvOS(.v13),
         .watchOS(.v6)
     ],
@@ -15,7 +15,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "Otel",
-            type: .dynamic,
+            type: .static,
             targets: ["Otel"]
         ),
     ],
