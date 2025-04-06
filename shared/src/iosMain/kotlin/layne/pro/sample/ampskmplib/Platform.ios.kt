@@ -2,12 +2,16 @@ package layne.pro.sample.ampskmplib
 
 import platform.UIKit.UIDevice
 import cocoapods.EmbraceIO.EMBWebViewCaptureServiceOptions
-//import Otel.
-
-(Otel)
+import kotlinx.cinterop.ExperimentalForeignApi
+import otel.Otel
 
 class IOSPlatform: Platform {
-    override val name: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
+    @OptIn(ExperimentalForeignApi::class)
+    override val name: String
+        get() {
+            val name = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
+            return "${name} and otel:${Otel.hello()}"
+        }
 }
 
 actual fun getPlatform(): Platform = IOSPlatform()
