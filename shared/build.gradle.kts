@@ -1,14 +1,29 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import kotlin.jvm.optionals.getOrNull
+
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.kotlinCocoapods)
-    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.cocoapods)
+    alias(libs.plugins.android.library)
 //    alias(libs.plugins.swiftklib)
     id("io.github.ttypic.swiftklib")
+    id("pro-layne-amps-kmp-publish")
 }
 
 kotlin {
+    compilerOptions {
+        allWarningsAsErrors = true
+        freeCompilerArgs.add("-Xexpect-actual-classes")
+    }
+
+    val versionCatalog: VersionCatalog = project.extensions.getByType<VersionCatalogsExtension>().named("libs")
+    jvmToolchain {
+        val javaVersion = versionCatalog.findVersion("java").getOrNull()?.requiredVersion
+            ?: throw GradleException("Version 'java' is not specified in the version catalog")
+        languageVersion = JavaLanguageVersion.of(javaVersion)
+    }
+
     androidTarget {
         compilations.all {
             compileTaskProvider.configure {
@@ -18,6 +33,8 @@ kotlin {
             }
         }
     }
+
+    explicitApi()
 
     listOf(
         iosX64(),

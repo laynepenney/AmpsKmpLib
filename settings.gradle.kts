@@ -1,5 +1,6 @@
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 pluginManagement {
+    includeBuild("build-logic")
     includeBuild("../swift-klib-plugin")
     repositories {
         google()
@@ -15,5 +16,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AmpsKMPLib"
+rootProject.name = "amps-kmp-lib"
 include(":shared")

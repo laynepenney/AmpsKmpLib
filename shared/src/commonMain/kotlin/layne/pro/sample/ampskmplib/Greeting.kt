@@ -1,9 +1,9 @@
 package layne.pro.sample.ampskmplib
 
-class Greeting {
+public class Greeting {
     private val platform: Platform = getPlatform()
 
-    fun greet(): String {
+    public fun greet(): String {
         return "Hello, ${platform.name}!"
     }
 }

@@ -5,7 +5,7 @@ import cocoapods.EmbraceIO.EMBWebViewCaptureServiceOptions
 import kotlinx.cinterop.ExperimentalForeignApi
 import otel.Otel
 
-class IOSPlatform: Platform {
+public class IOSPlatform: Platform {
     @OptIn(ExperimentalForeignApi::class)
     override val name: String
         get() {
@@ -14,4 +14,4 @@ class IOSPlatform: Platform {
         }
 }
 
-actual fun getPlatform(): Platform = IOSPlatform()
+public actual fun getPlatform(): Platform = IOSPlatform()
