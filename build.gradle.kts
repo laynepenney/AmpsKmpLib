@@ -3,6 +3,6 @@ plugins {
     alias(libs.plugins.android.library).apply(false)
     alias(libs.plugins.kotlin.multiplatform).apply(false)
     alias(libs.plugins.kotlin.cocoapods).apply(false)
-    id("io.github.ttypic.swiftklib").apply(false)
+    alias(libs.plugins.swiftklib).apply(false)
     id("pro-layne-amps-kmp-publish").apply(false)
 }

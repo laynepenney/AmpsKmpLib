@@ -6,8 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.cocoapods)
     alias(libs.plugins.android.library)
-//    alias(libs.plugins.swiftklib)
-    id("io.github.ttypic.swiftklib")
+    alias(libs.plugins.swiftklib)
     id("pro-layne-amps-kmp-publish")
 }
 
